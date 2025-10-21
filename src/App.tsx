@@ -186,7 +186,7 @@ function App() {
                                 "Connect your website to third-party services: payment processors, CRMs, email marketing, or custom APIs.",
                             expectedDelivery: "3-7 day",
                             price: 250,
-                            link: "mailto:guniquegrimble@gmail.com?subject=Custom Website Inquiry&body=Hi, I'm interested in a custom website.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            link: "mailto:guniquegrimble@gmail.com?subject=API Integration Inquiry&body=Hi, I'm interested in your API integration service.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🎨 UI/UX Design",
