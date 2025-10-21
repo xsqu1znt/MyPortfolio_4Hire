@@ -103,7 +103,7 @@ function App() {
 
                                 {/* Project links */}
                                 {project.links && (
-                                    <div className="mt-auto flex gap-4 p-8 md:gap-2">
+                                    <div className="mt-auto flex gap-2 p-8">
                                         {[
                                             project.links.demo && { href: project.links.demo, label: "Website" },
                                             project.links.github && { href: project.links.github, label: "Github" },
@@ -111,7 +111,10 @@ function App() {
                                         ]
                                             .filter((link): link is { href: string; label: string } => Boolean(link))
                                             .map((link, index, array) => (
-                                                <span key={link.label} className="flex gap-4 text-sm md:gap-2 md:text-base">
+                                                <span
+                                                    key={link.label}
+                                                    className="flex gap-4 text-sm text-nowrap md:gap-2 md:text-base"
+                                                >
                                                     <a
                                                         href={link.href}
                                                         target="_blank"
