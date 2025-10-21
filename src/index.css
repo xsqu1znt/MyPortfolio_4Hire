@@ -14,6 +14,12 @@
 
     --foreground: #2d3748;
     --foreground-dim: #4a5568;
+
+    --font-inter: {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
 }
 
 @theme inline {
@@ -24,11 +30,13 @@
 
     --color-foreground: var(--foreground);
     --color-foreground-dim: var(--foreground-dim);
+
+    --font-inter: var(--font-inter);
 }
 
 @layer base {
     * {
-        @apply text-foreground;
+        @apply font-inter text-foreground;
     }
 }
 
@@ -71,5 +79,28 @@
 .conic-rainbow::after {
     filter: blur(1rem);
     opacity: 0.5;
+}
+
+/* Scrollbar track transparent */
+* {
+    /*scrollbar-width: thin;*/
+    scrollbar-color: #888 transparent; /* thumb color, track color */
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* width of vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* color of the draggable part */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 

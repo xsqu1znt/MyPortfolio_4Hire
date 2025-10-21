@@ -1,7 +1,6 @@
 import { ImageSlide } from "./components/ui/ImageSlide.tsx";
 import { useOrientation } from "./hooks/useOrientation.ts";
 import { useUserClient } from "./hooks/useUserClient.ts";
-import { ExternalLink } from "lucide-react";
 
 function App() {
     const { isLandscape } = useOrientation();
@@ -16,7 +15,7 @@ function App() {
                     className={`${isLandscape && isMobile ? "min-h-[65vh]" : "h-[65vh]"} w-full max-w-[1280px] self-center p-8`}
                 >
                     {/* Hero content wrapper (colored) */}
-                    <div className="conic-rainbow relative h-full w-full rounded-[19px] p-[2px]">
+                    <div className="conic-rainbow relative h-full w-full rounded-[18px] p-[2px]">
                         {/* Hero content (filled) */}
                         <div className="bg-background flex h-full w-full flex-col items-center justify-center gap-8 rounded-[16px] p-10">
                             <div className="flex flex-col items-center gap-4">
@@ -40,7 +39,10 @@ function App() {
 
             {/* Top Work */}
             <section id="work" className="flex w-full flex-col items-center gap-12 px-10 py-18">
-                <h2 className="text-center text-4xl font-semibold">Top Work</h2>
+                <div className="flex flex-col items-center gap-4 text-center">
+                    <h2 className="text-4xl font-semibold">Top Work</h2>
+                    <p className="text-foreground-dim md:text-lg">I have 5+ years of experience in web development</p>
+                </div>
 
                 {/* Project card wrapper */}
                 <div className="flex w-full grid-cols-2 flex-col items-center gap-8 md:grid md:items-start lg:grid-cols-3">
@@ -68,7 +70,7 @@ function App() {
                         {
                             title: "Adverb (Ad Copy Optimizer)",
                             description:
-                                "AI-powered SMS & ad copy optimizer that enhances tone, clarity, and engagement using GPT. Built with Next.js, TailwindCSS, and OpenAI API.",
+                                "AI-powered SMS & ad copy optimizer that enhances tone, clarity, and engagement using GPT. Built with Next.js, Supabase, and OpenAI API.",
                             imageSources: ["adverbgg-1.png", "adverbgg-2.png"],
                             imageAlts: ["Adverb 1", "Adverb 2"],
                             links: {
@@ -144,15 +146,31 @@ function App() {
                 </div>
 
                 {/* Service card wrapper */}
-                <div className="flex w-full flex-col items-center gap-8 md:grid md:grid-cols-2">
+                <div className="flex w-full grid-cols-2 flex-col items-center gap-8 md:grid lg:grid-cols-3">
                     {[
+                        {
+                            title: "⚡ Quick Fixes",
+                            description:
+                                "Fast solutions for bugs, updates, and improvements. Quick turnaround when you need it most.",
+                            expectedDelivery: "1-2 day",
+                            price: 75,
+                            link: "mailto:guniquegrimble@gmail.com?subject=Quick Fix Inquiry&body=Hi, I have a problem for you to solve.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                        },
                         {
                             title: "🚀 Landing Page",
                             description:
                                 "High-converting single page designed to capture leads and drive sales. Mobile-responsive and SEO-optimized.",
                             expectedDelivery: "1-3 day",
-                            price: 300,
+                            price: 250,
                             link: "mailto:guniquegrimble@gmail.com?subject=Landing Page Inquiry&body=Hi, I'm interested in a landing page.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                        },
+                        {
+                            title: "🤖 Custom Discord Bot",
+                            description:
+                                "Full-featured Discord bot with custom features, moderation tools, and server integrations written in Typescript. Comes ready to host.",
+                            expectedDelivery: "5-10 day",
+                            price: 300,
+                            link: "mailto:guniquegrimble@gmail.com?subject=Custom Discord Bot Inquiry&body=Hi, I'm interested in a discord bot.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🌐 Custom Website",
@@ -163,26 +181,26 @@ function App() {
                             link: "mailto:guniquegrimble@gmail.com?subject=Custom Website Inquiry&body=Hi, I'm interested in a custom website.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
+                            title: "🔌 API Integration",
+                            description:
+                                "Connect your website to third-party services: payment processors, CRMs, email marketing, or custom APIs.",
+                            expectedDelivery: "3-7 day",
+                            price: 250,
+                            link: "mailto:guniquegrimble@gmail.com?subject=Custom Website Inquiry&body=Hi, I'm interested in a custom website.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                        },
+                        {
                             title: "🎨 UI/UX Design",
                             description:
                                 "Polished interfaces designed with your users in mind. Figma files ready to impress and convert.",
-                            expectedDelivery: "24 hour",
+                            expectedDelivery: "3-5 day",
                             price: 400,
                             link: "mailto:guniquegrimble@gmail.com?subject=UI/UX Design Inquiry&body=Hi, I'm interested in your UI/UX design service.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
-                        },
-                        {
-                            title: "⚡ Quick Fixes",
-                            description:
-                                "Fast solutions for bugs, updates, and improvements. Quick turnaround when you need it most.",
-                            expectedDelivery: "24 hour",
-                            price: 75,
-                            link: "mailto:guniquegrimble@gmail.com?subject=Quick Fix Inquiry&body=Hi, I have a problem for you to solve.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
                         }
                     ].map(service => (
                         /* Service card */
                         <div
                             key={service.title}
-                            className="flex flex-col items-center gap-6 rounded-2xl border border-zinc-400 bg-gradient-to-br from-white to-zinc-100 p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg md:items-start md:gap-8"
+                            className="flex h-full w-full flex-col items-center gap-6 rounded-2xl border border-zinc-400 bg-gradient-to-br from-white to-zinc-100 p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg md:items-start md:gap-8"
                         >
                             {/* Service header */}
                             <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
@@ -193,7 +211,7 @@ function App() {
                             </div>
 
                             {/* Service info */}
-                            <div className="flex flex-col items-center gap-2 md:flex-row md:gap-4">
+                            <div className="flex flex-1 flex-col items-center gap-2 md:flex-row md:gap-4">
                                 <span className="text-xl font-semibold md:text-2xl">${service.price}+</span>
                                 <span className="text-foreground-dim text-sm md:text-base">
                                     {service.expectedDelivery} delivery
@@ -203,7 +221,7 @@ function App() {
                             {/* Service contact */}
                             <a
                                 href={service.link}
-                                className="w-fit cursor-pointer rounded-lg bg-zinc-900 px-6 py-2 font-semibold text-white transition-all duration-300 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
+                                className="mt-auto w-fit cursor-pointer rounded-lg bg-zinc-900 px-6 py-2 font-semibold text-white transition-all duration-300 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
                             >
                                 Contact Me
                             </a>
@@ -224,29 +242,38 @@ function App() {
                     </p>
                 </div>
 
-                {/* Contact button */}
-                <a
-                    href="mailto:guniquegrimble@gmail.com?subject=Custom Work Inquiry&body=Hi, I'm interested in [my brilliant idea].%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
-                    className="w-fit cursor-pointer rounded-lg bg-white px-6 py-2 font-semibold shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
-                >
-                    Contact Me
-                </a>
+                {/* Contacts */}
+                <div className="flex flex-col items-center gap-4">
+                    <a
+                        href="mailto:guniquegrimble@gmail.com?subject=Custom Work Inquiry&body=Hi, I'm interested in [my brilliant idea].%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                        className="w-fit cursor-pointer rounded-lg bg-white px-6 py-2 font-semibold shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
+                    >
+                        Contact Me
+                    </a>
 
-                {/* Social buttons */}
-                <div className="flex flex-col flex-wrap md:flex-row md:gap-4">
-                    {[
-                        { label: "Linkedin", link: "" },
-                        { label: "Fiverr", link: "" },
-                        { label: "Github", link: "" }
-                    ].map(social => (
-                        <a
-                            key={social.label}
-                            className="flex w-fit cursor-pointer rounded-lg border border-transparent px-4 py-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/10 hover:bg-zinc-100/10 hover:shadow-lg md:px-10 md:py-3"
-                        >
-                            {social.label}
-                            <ExternalLink size={16} className="-mr-1 ml-2 stroke-white" />
-                        </a>
-                    ))}
+                    {/* Social buttons */}
+                    <div className="flex flex-wrap items-center">
+                        {[
+                            {
+                                iconSource: "/linkedin.svg",
+                                link: "https://www.linkedin.com/in/gunique-grimble/"
+                            },
+                            { iconSource: "/fiverr.svg", link: "https://www.fiverr.com/s/5rL39pz" },
+                            { iconSource: "/github.svg", link: "https://github.com/xsqu1znt" }
+                        ].map(social => (
+                            <a
+                                key={social.link}
+                                href={social.link}
+                                className="flex w-fit cursor-pointer rounded-lg border border-transparent p-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/10 hover:bg-zinc-100/10 hover:shadow-lg"
+                            >
+                                <img
+                                    src={social.iconSource}
+                                    alt="Social"
+                                    className={social.iconSource === "/linkedin.svg" ? "size-10" : "size-8"}
+                                />
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </section>
 
