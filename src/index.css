@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --accent: #31b2a6;
+
+    --background: #fcfcfc;
+    --background-secondary: #dee6ea;
+
+    --foreground: #2d3748;
+    --foreground-dim: #4a5568;
+}
+
+@theme inline {
+    --color-accent: var(--accent);
+
+    --color-background: var(--background);
+    --color-background-secondary: var(--background-secondary);
+
+    --color-foreground: var(--foreground);
+    --color-foreground-dim: var(--foreground-dim);
+}
+
+@layer base {
+    * {
+        @apply text-foreground;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin-conic {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
+
+.conic-rainbow::before,
+.conic-rainbow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+            from var(--angle),
+            #ff0000,
+            #ff7f00,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #9400d3,
+            #ff0000
+    );
+    border-radius: inherit;
+    animation: spin-conic 10s linear infinite;
+    z-index: -1;
+}
+
+.conic-rainbow::after {
+    filter: blur(1rem);
+    opacity: 0.5;
+}
+
