@@ -264,6 +264,8 @@ function App() {
                             <a
                                 key={social.link}
                                 href={social.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex w-fit cursor-pointer rounded-lg border border-transparent p-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/10 hover:bg-zinc-100/10 hover:shadow-lg"
                             >
                                 <img
