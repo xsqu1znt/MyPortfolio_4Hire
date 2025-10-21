@@ -73,7 +73,8 @@ function App() {
                             imageAlts: ["Adverb 1", "Adverb 2"],
                             links: {
                                 demo: "https://adverbgg.vercel.app",
-                                github: "https://github.com/xsqu1znt/adverb.tsx"
+                                github: "https://github.com/xsqu1znt/adverb.tsx",
+                                preview: "/adverbgg-1.png"
                             }
                         }
                     ].map(project => (
@@ -88,7 +89,7 @@ function App() {
                             </div>
 
                             {/* Project content wrapper */}
-                            <div className="flex h-full w-full flex-col bg-gradient-to-br from-white to-zinc-100">
+                            <div className="flex h-full w-full flex-col items-center bg-gradient-to-br from-white to-zinc-100 md:items-start">
                                 {/* Project content */}
                                 <div className="relative flex flex-1 flex-col items-center gap-6 p-8 md:items-start md:gap-8">
                                     {/* Project header */}
