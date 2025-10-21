@@ -115,7 +115,7 @@ function App() {
                                             .map((link, index, array) => (
                                                 <span
                                                     key={link.label}
-                                                    className="flex gap-4 text-sm text-nowrap md:gap-2 md:text-base"
+                                                    className="flex gap-2 text-sm text-nowrap md:text-base"
                                                 >
                                                     <a
                                                         href={link.href}
