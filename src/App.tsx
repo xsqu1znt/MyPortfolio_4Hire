@@ -214,16 +214,6 @@ function App() {
                                 "Hi, I'm interested in a custom website.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
-                            title: "🔌 API Integration",
-                            description:
-                                "Connect your website to third-party services: payment processors, CRMs, email marketing, or custom APIs.",
-                            expectedDelivery: "3-5 day",
-                            price: 100,
-                            subject: "🔌 API Integration Inquiry",
-                            message:
-                                "Hi, I'm interested in your API integration service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
-                        },
-                        {
                             title: "🎨 UI/UX Design",
                             description:
                                 "Polished interfaces designed with your users in mind. Figma files ready to impress and convert.",
@@ -232,6 +222,16 @@ function App() {
                             subject: "🎨 UI/UX Design Inquiry",
                             message:
                                 "Hi, I'm interested in your UI/UX design service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
+                        },
+                        {
+                            title: "🔌 API Integration",
+                            description:
+                                "Connect your website to third-party services: payment processors, CRMs, email marketing, or custom APIs.",
+                            expectedDelivery: "3-5 day",
+                            price: 100,
+                            subject: "🔌 API Integration Inquiry",
+                            message:
+                                "Hi, I'm interested in your API integration service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         }
                     ].map(service => (
                         /* Service card */
