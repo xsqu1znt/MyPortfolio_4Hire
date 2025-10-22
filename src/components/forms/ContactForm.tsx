@@ -1,6 +1,6 @@
 import { useHandleClickOutside } from "../../hooks/useHandleClickOutside.ts";
+import { useEffect, useRef, useState } from "react";
 import { LoaderCircle, X } from "lucide-react";
-import { useRef, useState } from "react";
 import * as React from "react";
 
 interface ContactFormProps {
@@ -43,6 +43,19 @@ export function ContactForm({ subject, message, setMessage, isVisible, setIsVisi
             setIsSubmitting(false);
         }
     };
+
+    useEffect(() => {
+        if (isVisible) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        // Cleanup on unmount
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isVisible]);
 
     return (
         <div className={`fixed z-50 h-[100dvh] w-full bg-black/75 ${isVisible ? "block" : "pointer-events-none hidden"}`}>
