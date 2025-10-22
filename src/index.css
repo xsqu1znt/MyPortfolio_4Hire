@@ -101,6 +101,26 @@
     }
 }
 
+.bg-noise {
+    /* position: relative; */
+    isolation: isolate; /* ensures pseudo-element stays within this element */
+}
+
+.bg-noise::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: 0;
+    image-rendering: pixelated;
+    background-image: url("./assets/noise.png"); /* path to your noise texture */
+    background-repeat: repeat;
+    background-size: 256px 256px; /* adjust depending on your noise texture size */
+    mix-blend-mode: overlay;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+}
+
 /* Scrollbar track transparent */
 * {
     /*scrollbar-width: thin;*/

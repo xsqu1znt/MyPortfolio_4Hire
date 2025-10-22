@@ -19,7 +19,7 @@ function App() {
     };
 
     return (
-        <div className="relative flex min-h-screen w-full min-w-80 flex-col items-center overflow-x-hidden">
+        <div className="bg-noise relative flex min-h-screen w-full min-w-80 flex-col items-center overflow-x-hidden">
             <ContactForm
                 subject={contactFormSubject}
                 message={contactFormMessage}
