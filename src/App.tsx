@@ -198,7 +198,7 @@ function App() {
                             description:
                                 "Full-featured Discord bot with custom features, moderation tools, and server integrations written in Typescript. Comes ready to host.",
                             expectedDelivery: "5-10 day",
-                            price: 300,
+                            price: 250,
                             subject: "🤖 Custom Discord Bot Inquiry",
                             message:
                                 "Hi, I'm interested in a discord bot.\n\n[Please provide relevant details, your budget, and your expected timeline]"
@@ -207,7 +207,7 @@ function App() {
                             title: "🌐 Custom Website",
                             description:
                                 "Full-featured, multi-page websites built from scratch. Tailored to your brand and built to scale with your business.",
-                            expectedDelivery: "5-10 day",
+                            expectedDelivery: "7-14 day",
                             price: 800,
                             subject: "🌐 Custom Website Inquiry",
                             message:
@@ -217,8 +217,8 @@ function App() {
                             title: "🔌 API Integration",
                             description:
                                 "Connect your website to third-party services: payment processors, CRMs, email marketing, or custom APIs.",
-                            expectedDelivery: "3-7 day",
-                            price: 250,
+                            expectedDelivery: "3-5 day",
+                            price: 75,
                             subject: "🔌 API Integration Inquiry",
                             message:
                                 "Hi, I'm interested in your API integration service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
@@ -228,7 +228,7 @@ function App() {
                             description:
                                 "Polished interfaces designed with your users in mind. Figma files ready to impress and convert.",
                             expectedDelivery: "3-5 day",
-                            price: 400,
+                            price: 250,
                             subject: "🎨 UI/UX Design Inquiry",
                             message:
                                 "Hi, I'm interested in your UI/UX design service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
