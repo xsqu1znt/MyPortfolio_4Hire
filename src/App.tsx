@@ -1,13 +1,33 @@
+import { ContactForm } from "./components/forms/ContactForm.tsx";
 import { ImageSlide } from "./components/ui/ImageSlide.tsx";
 import { useOrientation } from "./hooks/useOrientation.ts";
 import { useUserClient } from "./hooks/useUserClient.ts";
+import { useState } from "react";
 
 function App() {
     const { isLandscape } = useOrientation();
     const { isMobile } = useUserClient();
 
+    const [contactFormVisible, setContactFormVisible] = useState(false);
+    const [contactFormSubject, setContactFormSubject] = useState("");
+    const [contactFormMessage, setContactFormMessage] = useState("");
+
+    const handleToggleContactForm = (subject: string, message: string) => {
+        setContactFormSubject(subject);
+        setContactFormMessage(message);
+        setContactFormVisible(true);
+    };
+
     return (
-        <div className="flex min-h-screen w-full min-w-80 flex-col items-center overflow-x-hidden">
+        <div className="relative flex min-h-screen w-full min-w-80 flex-col items-center overflow-x-hidden">
+            <ContactForm
+                subject={contactFormSubject}
+                message={contactFormMessage}
+                setMessage={setContactFormMessage}
+                isVisible={contactFormVisible}
+                setIsVisible={() => setContactFormVisible(false)}
+            />
+
             {/* Hero */}
             <section id="hero" className={`flex h-full w-full flex-col ${!isMobile ? "md:mt-6" : ""}`}>
                 {/* Hero content wrapper */}
@@ -26,12 +46,17 @@ function App() {
                             </div>
 
                             {/* Contact button */}
-                            <a
-                                href="mailto:guniquegrimble@gmail.com?subject=Custom Work Inquiry&body=Hi, I'm interested in [my brilliant idea].%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            <button
                                 className="w-fit cursor-pointer rounded-lg border border-zinc-200 bg-white px-10 py-3 text-lg font-semibold shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-lg"
+                                onClick={() =>
+                                    handleToggleContactForm(
+                                        "Custom Work Inquiry",
+                                        "Hi, I'm interested in [your brilliant idea].\n\n[Please provide relevant details, your budget, and your expected timeline]"
+                                    )
+                                }
                             >
                                 Contact Me
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -121,7 +146,7 @@ function App() {
                                                         href={link.href}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="-m-4 p-4 font-semibold hover:underline"
+                                                        className="-mx-4 px-4 font-semibold hover:underline"
                                                     >
                                                         {link.label}
                                                     </a>
@@ -154,7 +179,9 @@ function App() {
                                 "Fast solutions for bugs, updates, and improvements. Quick turnaround when you need it most.",
                             expectedDelivery: "1-2 day",
                             price: 75,
-                            link: "mailto:guniquegrimble@gmail.com?subject=Quick Fix Inquiry&body=Hi, I have a problem for you to solve.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            subject: "⚡ Quick Fix Inquiry",
+                            message:
+                                "Hi, I have a problem for you to solve.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🚀 Landing Page",
@@ -162,7 +189,9 @@ function App() {
                                 "High-converting single page designed to capture leads and drive sales. Mobile-responsive and SEO-optimized.",
                             expectedDelivery: "1-3 day",
                             price: 250,
-                            link: "mailto:guniquegrimble@gmail.com?subject=Landing Page Inquiry&body=Hi, I'm interested in a landing page.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            subject: "🚀 Landing Page Inquiry",
+                            message:
+                                "Hi, I'm interested in a landing page.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🤖 Custom Discord Bot",
@@ -170,7 +199,9 @@ function App() {
                                 "Full-featured Discord bot with custom features, moderation tools, and server integrations written in Typescript. Comes ready to host.",
                             expectedDelivery: "5-10 day",
                             price: 300,
-                            link: "mailto:guniquegrimble@gmail.com?subject=Custom Discord Bot Inquiry&body=Hi, I'm interested in a discord bot.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            subject: "🤖 Custom Discord Bot Inquiry",
+                            message:
+                                "Hi, I'm interested in a discord bot.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🌐 Custom Website",
@@ -178,7 +209,9 @@ function App() {
                                 "Full-featured, multi-page websites built from scratch. Tailored to your brand and built to scale with your business.",
                             expectedDelivery: "5-10 day",
                             price: 800,
-                            link: "mailto:guniquegrimble@gmail.com?subject=Custom Website Inquiry&body=Hi, I'm interested in a custom website.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            subject: "🌐 Custom Website Inquiry",
+                            message:
+                                "Hi, I'm interested in a custom website.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🔌 API Integration",
@@ -186,7 +219,9 @@ function App() {
                                 "Connect your website to third-party services: payment processors, CRMs, email marketing, or custom APIs.",
                             expectedDelivery: "3-7 day",
                             price: 250,
-                            link: "mailto:guniquegrimble@gmail.com?subject=API Integration Inquiry&body=Hi, I'm interested in your API integration service.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            subject: "🔌 API Integration Inquiry",
+                            message:
+                                "Hi, I'm interested in your API integration service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         },
                         {
                             title: "🎨 UI/UX Design",
@@ -194,7 +229,9 @@ function App() {
                                 "Polished interfaces designed with your users in mind. Figma files ready to impress and convert.",
                             expectedDelivery: "3-5 day",
                             price: 400,
-                            link: "mailto:guniquegrimble@gmail.com?subject=UI/UX Design Inquiry&body=Hi, I'm interested in your UI/UX design service.%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                            subject: "🎨 UI/UX Design Inquiry",
+                            message:
+                                "Hi, I'm interested in your UI/UX design service.\n\n[Please provide relevant details, your budget, and your expected timeline]"
                         }
                     ].map(service => (
                         /* Service card */
@@ -219,12 +256,12 @@ function App() {
                             </div>
 
                             {/* Service contact */}
-                            <a
-                                href={service.link}
+                            <button
                                 className="mt-auto w-fit cursor-pointer rounded-lg bg-zinc-900 px-6 py-2 font-semibold text-white transition-all duration-300 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
+                                onClick={() => handleToggleContactForm(service.subject, service.message)}
                             >
                                 Contact Me
-                            </a>
+                            </button>
                         </div>
                     ))}
                 </div>
@@ -244,12 +281,17 @@ function App() {
 
                 {/* Contacts */}
                 <div className="flex flex-col items-center gap-4">
-                    <a
-                        href="mailto:guniquegrimble@gmail.com?subject=Custom Work Inquiry&body=Hi, I'm interested in [my brilliant idea].%0D%0A%0D%0A[Please provide relevant details, your budget, and your expected timeline]"
+                    <button
                         className="w-fit cursor-pointer rounded-lg bg-white px-6 py-2 font-semibold shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
+                        onClick={() =>
+                            handleToggleContactForm(
+                                "Custom Work Inquiry",
+                                "Hi, I'm interested in [your brilliant idea].\n\n[Please provide relevant details, your budget, and your expected timeline]"
+                            )
+                        }
                     >
                         Contact Me
-                    </a>
+                    </button>
 
                     {/* Social buttons */}
                     <div className="flex flex-wrap items-center">
