@@ -298,7 +298,7 @@ function App() {
                         {[
                             {
                                 iconSource: "/linkedin.svg",
-                                link: "https://www.linkedin.com/in/gunique-grimble/"
+                                link: "https://www.linkedin.com/in/guniqueg/"
                             },
                             { iconSource: "/fiverr.svg", link: "https://www.fiverr.com/s/5rL39pz" },
                             { iconSource: "/github.svg", link: "https://github.com/xsqu1znt" }
