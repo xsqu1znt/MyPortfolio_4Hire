@@ -280,7 +280,7 @@ function App() {
                 </div>
 
                 {/* Contacts */}
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-6">
                     <button
                         className="w-fit cursor-pointer rounded-lg bg-white px-6 py-2 font-semibold shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-100 hover:shadow-lg md:px-10 md:py-3 md:text-lg"
                         onClick={() =>
@@ -294,7 +294,7 @@ function App() {
                     </button>
 
                     {/* Social buttons */}
-                    <div className="flex flex-wrap items-center">
+                    <div className="flex flex-wrap items-center gap-2">
                         {[
                             {
                                 iconSource: "/linkedin.svg",
@@ -308,7 +308,7 @@ function App() {
                                 href={social.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex w-fit cursor-pointer rounded-lg border border-transparent p-2 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/10 hover:bg-zinc-100/10 hover:shadow-lg"
+                                className={`flex w-fit cursor-pointer rounded-lg border border-transparent ${social.iconSource === "/linkedin.svg" ? "p-1" : "p-2"} text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/10 hover:bg-zinc-100/10 hover:shadow-lg`}
                             >
                                 <img
                                     src={social.iconSource}
@@ -321,8 +321,8 @@ function App() {
                 </div>
             </section>
 
-            <footer className="flex w-full items-center justify-center bg-zinc-900 px-10 py-8 text-center text-sm md:text-base">
-                <p className="text-zinc-300">© {new Date().getFullYear()} Gunique G. Available for freelance work.</p>
+            <footer className="flex w-full items-center justify-center bg-zinc-900 px-10 py-4 text-center text-sm md:text-base">
+                <p className="text-zinc-300">© {new Date().getFullYear()} Gunique G. Available for work</p>
             </footer>
         </div>
     );
